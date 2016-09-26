@@ -229,7 +229,7 @@ Dim strFilter, tDate As String
 Set objNamespace = myOlApp.GetNamespace("MAPI")
 Set objFolder = objNamespace.GetDefaultFolder(olFolderInbox)
 
-strFilter = "@SQL=" & Chr(34) & "urn:schemas:httpmail:subject" & Chr(34) & " like '%Service Request Case 1%'"
+strFilter = "@SQL=" & Chr(34) & "urn:schemas:httpmail:subject" & Chr(34) & " like '%Service Request Case%'"
 
 Set filteredItems = objFolder.Items.Restrict(strFilter)
 
@@ -288,7 +288,7 @@ If filteredItems.Count = 0 Then
     Found = False
 Else
     Found = True
-    MsgBox "Meron"
+    'MsgBox "Meron"
     ' this loop is optional, it displays the list of emails by subject.
     For Each itm In filteredItems
      'Debug.Print itm.Subject
@@ -301,7 +301,7 @@ End If
 
 'If the subject isn't found:
 If Not Found Then
-    MsgBox "Wala"
+    'MsgBox "Wala"
     'NoResults.Show
 Else
    Debug.Print "Found " & filteredItems.Count & " items."
